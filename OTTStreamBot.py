@@ -102,10 +102,12 @@ async def handle_selection(update: Update, context: ContextTypes.DEFAULT_TYPE) -
                 await update.message.reply_text("Enter the number of the season you want to watch:")
                 return SEASON
             else:
-                movie_link = f"https://vidsrc.me/embed/movie/{selected_result['imdb_id']}"
+                movie_link1 = f"https://vidsrc.me/embed/movie/{selected_result['imdb_id']}"
+                movie_link2 =f"https://vidsrc.to/embed/movie/{selected_result['imdb_id']}"
                 caption = f"{selected_result['title']} - {selected_result['type']}\n"
                 caption += f"Year: {selected_result['year']}\n"
-                caption += f"Link: {movie_link}"
+                caption += f"Link1: {movie_link1}"
+                caption += f"Link2: {movie_link2}"
                 
                 poster_url = get_movie_poster(selected_result['imdb_id'])
                 if poster_url:
@@ -144,12 +146,14 @@ async def handle_episode(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
         episode = int(update.message.text)
         selected_result = context.user_data['selected_result']
         season = context.user_data['season']
-        tv_link = f"https://vidsrc.me/embed/tv/{selected_result['imdb_id']}/{season}/{episode}"
+        tv_link1 = f"https://vidsrc.me/embed/tv/{selected_result['imdb_id']}/{season}/{episode}"
+        tv_link2 = f"https://vidsrc.to/embed/tv/{selected_result['imdb_id']}/{season}/{episode}"
         
         caption = f"{selected_result['title']} ({selected_result['year']}) - {selected_result['type']}\n"
         caption += f"Season: {season}\n"
         caption += f"Episode: {episode}\n"
-        caption += f"Link: {tv_link}"
+        caption += f"Link1: {tv_link1}"
+        caption += f"Link2: {tv_link2}"
         
         poster_url = get_movie_poster(selected_result['imdb_id'])
         if poster_url:
