@@ -106,8 +106,8 @@ async def handle_selection(update: Update, context: ContextTypes.DEFAULT_TYPE) -
                 movie_link2 =f"https://vidsrc.to/embed/movie/{selected_result['imdb_id']}"
                 caption = f"{selected_result['title']} - {selected_result['type']}\n"
                 caption += f"Year: {selected_result['year']}\n"
-                caption += f"Link1: {movie_link1}"
-                caption += f"Link2: {movie_link2}"
+                caption += f"Link1: {movie_link1}\n"
+                caption += f"Link2: {movie_link2}\n"
                 
                 poster_url = get_movie_poster(selected_result['imdb_id'])
                 if poster_url:
@@ -152,8 +152,8 @@ async def handle_episode(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
         caption = f"{selected_result['title']} ({selected_result['year']}) - {selected_result['type']}\n"
         caption += f"Season: {season}\n"
         caption += f"Episode: {episode}\n"
-        caption += f"Link1: {tv_link1}"
-        caption += f"Link2: {tv_link2}"
+        caption += f"Link1: {tv_link1}\n"
+        caption += f"Link2: {tv_link2}\n"
         
         poster_url = get_movie_poster(selected_result['imdb_id'])
         if poster_url:
