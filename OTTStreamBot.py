@@ -46,7 +46,7 @@ def search_imdb(search_query):
     return []
 
 def get_movie_poster(imdb_id):
-    #TMDB_API_KEY = "3b28f2909edf44ced869035f14a0b37a"
+    TMDB_API_KEY = "3b28f2909edf44ced869035f14a0b37a"
     search_url = f"https://api.themoviedb.org/3/find/{imdb_id}?api_key={TMDB_API_KEY}&external_source=imdb_id"
     response = requests.get(search_url)
     data = response.json()
@@ -182,7 +182,7 @@ def main() -> None:
     logger.info("Starting bot...")
     try:
         # Replace 'YOUR_TOKEN' with your actual bot token
-        application = Application.builder().token('BOT_TOKEN').build()
+        application = Application.builder().token('7104591151:AAGKQMJhSD9C20mNTkpU1rK1UYgdvbhu0lg').build()
 
         conv_handler = ConversationHandler(
             entry_points=[CommandHandler('start', start)],
